@@ -64,7 +64,7 @@ export default {
 input {
   display: block;
   border: none;
-  border-bottom: 3px solid #4CACBC;
+  border-bottom: 3px solid #371B58;
   outline: none;
   padding: 10px 15px;
   background: #F6E3C5;
@@ -87,10 +87,10 @@ input::placeholder {
 label {
   border-radius: 5px;
   text-align: left;
-  color: #371B58;
+  color: white;
   font-family: "Ubuntu", sans-serif;
   padding: 5px 15px 5px 15px;
   font-size: 12px;
-  background: #4CACBC;
+  background: #371B58;
 }
 </style>
