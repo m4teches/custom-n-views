@@ -1,5 +1,5 @@
 <template>
-  <NInput label="Kereső" placeholder="Bágyi könvtári kereső..." />
+  <NInput label="Kereső" placeholder="Bágyi könyvtári kereső..." />
   <SearchContainer :results="results" />
 </template>
 
