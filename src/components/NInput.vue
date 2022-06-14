@@ -72,6 +72,7 @@ input {
   border-radius: 5px 5px 0 0;
   font-family: "Ubuntu", sans-serif;
   padding-top: 10px;
+  width: 100% !important;
 }
 input::placeholder {
   color: #371B58;

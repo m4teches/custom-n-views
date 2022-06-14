@@ -1,5 +1,9 @@
 <template>
-  <NInput label="Kereső" placeholder="Bágyi könyvtári kereső..." />
+  <NInput
+    style="width: 50%"
+    label="Kereső"
+    placeholder="Bágyi könyvtári kereső..."
+  />
   <SearchContainer :results="results" />
 </template>
 
@@ -15,16 +19,19 @@ export default {
           img: "assets/book-cover.jpg",
           name: "Teszt könyv",
           author: "Teszt író",
+          badge: 1,
         },
         {
           img: "assets/book-cover.jpg",
           name: "Teszt könyv",
           author: "Teszt író",
+          badge: 2,
         },
         {
           img: "assets/book-cover.jpg",
           name: "Teszt könyv",
           author: "Teszt író",
+          badge: 3,
         },
       ],
     };

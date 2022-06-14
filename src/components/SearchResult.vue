@@ -5,7 +5,9 @@
       <h2>{{ result.name }}</h2>
       <p>{{ result.author }}</p>
     </div>
-    <div class="badge">Új</div>
+    <div v-if="result.badge == 1" class="badge new">Új</div>
+    <div v-if="result.badge == 2" class="badge featured">Ajánlott</div>
+    <div v-if="result.badge == 3" class="badge antic">Antik</div>
   </div>
 </template>
 
@@ -46,6 +48,7 @@ img {
 .badge {
   position: absolute;
   background: #371B58;
+  font-size: 12px;
   color: white;
   top: 5px;
   right: 5px;
@@ -53,5 +56,15 @@ img {
   width: 60px;
   line-height: 60px;
   border-radius: 50%;
+  /* box-shadow: 2px 2px 30px 10px #f6e3c5; */
+}
+.new {
+  background: #3EC70B;
+}
+.featured {
+  background: #F7EC09;
+}
+.antic {
+  background: #371B58;
 }
 </style>
