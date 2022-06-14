@@ -1,13 +1,14 @@
 <template>
   <div class="result">
-    <img :src="result.img" :alt="result.name" />
+    <img :src="result.img" :alt="result.title" />
     <div class="description">
-      <h2>{{ result.name }}</h2>
+      <h2>{{ result.title }}</h2>
       <p>{{ result.author }}</p>
     </div>
     <div v-if="result.badge == 1" class="badge new">Új</div>
     <div v-if="result.badge == 2" class="badge featured">Ajánlott</div>
     <div v-if="result.badge == 3" class="badge antic">Antik</div>
+    <div class="shelf">{{result.shelf}}</div>
   </div>
 </template>
 
@@ -36,6 +37,7 @@ img {
   width: 300px;
   height: 400px;
   color: #371B58;
+  margin: 15px;
 }
 .description {
   position: absolute;
@@ -43,7 +45,11 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100px;
+  min-height: 100px;
+}
+.description h2{
+  font-size: 18px;
+  padding: 0 15px;
 }
 .badge {
   position: absolute;
@@ -66,5 +72,16 @@ img {
 }
 .antic {
   background: #371B58;
+}
+.shelf{
+  position: absolute;
+  background: #371B58;
+  color:white;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  right: 0;
+  bottom: 0;
+  left: 66%;
 }
 </style>

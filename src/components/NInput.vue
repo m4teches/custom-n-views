@@ -4,10 +4,11 @@
       <label :for="id">{{ label }}</label>
     </div>
     <input
+      v-bind="$attrs"
+      v-model="val"
       :id="id"
       @keyup="textSearch($event)"
       v-on:keyup.enter="onEnter"
-      v-bind="$attrs"
       type="text"
       :placeholder="this.placeholder ? this.placeholder : 'Type here...'"
     />
@@ -15,6 +16,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "NInput",
   props: {
@@ -25,6 +27,7 @@ export default {
     return {
       timer: undefined,
       id: null,
+      val: ''
     };
   },
   mounted() {
@@ -32,17 +35,27 @@ export default {
     console.log(this);
   },
   methods: {
-    textSearch(e) {
+    textSearch() {
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
         console.log("searching...");
-      }, 1500);
+        this.search(this.val);
+      }, 500);
     },
-    onEnter(e) {
+    onEnter() {
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
         console.log("searching after enter...");
-      }, 1500);
+        this.search(this.val);
+      }, 500);
+    },
+    search(pattern){
+      console.log("http://127.0.0.1:8001/api/search/" + pattern);
+      axios.get("http://127.0.0.1:8001/api/search/" + pattern)
+        .then(response => {
+          this.$emit('search-result', this.val == '' ? [] : response.data);
+          // this.val = '';
+        })
     },
     uuidv4() {
       return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -58,7 +71,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 .ninput {
   margin: 15px;
   display: inline-block;
@@ -76,6 +88,8 @@ input {
   font-family: "Ubuntu", sans-serif;
   padding-top: 10px;
   width: 100% !important;
+  font-weight:bold;
+  box-sizing: border-box;
 }
 input::placeholder {
   color: #371B58;

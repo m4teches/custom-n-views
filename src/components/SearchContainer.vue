@@ -1,7 +1,7 @@
 <template>
   <div class="search-container">
     <SearchResult
-      v-for="result in results"
+      v-for="result in featured"
       :result="result"
       :key="result.name"
     />
@@ -14,6 +14,12 @@ export default {
   name: "SearchContainer",
   components: {
     SearchResult: SearchResult,
+  },
+  computed:{
+    featured() {
+      // return this.results.slice(0, 6);
+      return this.results;
+    }
   },
   data: function () {
     return {
@@ -30,5 +36,6 @@ export default {
 .search-container {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 </style>
