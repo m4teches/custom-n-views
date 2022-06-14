@@ -1,5 +1,5 @@
 <template>
-  <NInput />
+  <NInput label="Kereső" placeholder="Bágyi könvtári kereső..." />
 </template>
 
 <script>
