@@ -97,4 +97,11 @@ label {
   font-size: 12px;
   background: #371B58;
 }
+input:focus {
+  border-color: white;
+  -webkit-transition: border-color 250ms ease-out;
+  -moz-transition: border-color 250ms ease-out;
+  -o-transition: border-color 250ms ease-out;
+  transition: border-color 250ms ease-out;
+}
 </style>
