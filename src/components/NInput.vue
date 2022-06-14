@@ -6,6 +6,7 @@
     <input
       :id="id"
       @keyup="textSearch($event)"
+      v-on:keyup.enter="onEnter"
       v-bind="$attrs"
       type="text"
       :placeholder="this.placeholder ? this.placeholder : 'Type here...'"
@@ -36,6 +37,9 @@ export default {
       this.timer = setTimeout(() => {
         console.log("searching...");
       }, 1500);
+    },
+    onEnter(e) {
+      console.log(e);
     },
     uuidv4() {
       return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
