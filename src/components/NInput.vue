@@ -32,7 +32,6 @@ export default {
   },
   mounted() {
     this.id = this.uuidv4();
-    console.log(this);
   },
   methods: {
     textSearch() {
@@ -50,8 +49,8 @@ export default {
       }, 500);
     },
     search(pattern){
-      console.log("http://127.0.0.1:8001/api/search/" + pattern);
-      axios.get("http://127.0.0.1:8001/api/search/" + pattern)
+      console.log("http://test.joofarm.ro/api/search/" + pattern);
+      axios.get("http://test.joofarm.ro/api/search/" + pattern)
         .then(response => {
           this.$emit('search-result', this.val == '' ? [] : response.data);
           // this.val = '';
