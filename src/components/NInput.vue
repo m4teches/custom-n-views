@@ -38,19 +38,16 @@ export default {
     textSearch() {
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
-        console.log("searching...");
         this.search(this.val);
-      }, 500);
+      }, 1000);
     },
     onEnter() {
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
-        console.log("searching after enter...");
         this.search(this.val);
       }, 500);
     },
     search(pattern){
-      console.log("http://127.0.0.1:8001/api/search/" + pattern);
       axios.get("http://127.0.0.1:8001/api/search/" + pattern)
         .then(response => {
           this.$emit('search-result', this.val == '' ? [] : response.data);
