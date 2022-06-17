@@ -1,6 +1,9 @@
 <template>
-  <div class="result">
-    <img :src="result.img" :alt="result.title" />
+  <div 
+    @mouseenter="hover"
+    @mouseleave="hoverend"
+    class="result">
+    <img :id="'img' + id" :src="result.img" :alt="result.title" />
     <div class="description">
       <h2>{{ result.title }}</h2>
       <p>{{ result.author }}</p>
@@ -13,15 +16,42 @@
 </template>
 
 <script>
+import gsap from "gsap";
+let uuid = 0;
 export default {
   name: "SearchResult",
   data: function () {
     return {
-      imgLink: null,
+      imgLink : null,
+      id : null,
     };
+  },
+  mounted() {
+    this.id = uuid.toString();
+    uuid += 1;
   },
   props: {
     result: Object,
+  },
+  methods: {
+    hover() {
+        gsap.to('#img' + this.id,{
+            scale: 1.1
+        });
+    },
+    hoverend() {
+        gsap.to('#img' + this.id,{
+            scale: 1
+        });
+    },
+    uuidv4() {
+      return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
+        (
+          c ^
+          (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+      ).toString(4)
+      );
+    },
   },
 };
 </script>
@@ -38,6 +68,7 @@ img {
   height: 400px;
   color: #371B58;
   margin: 15px;
+  overflow: hidden;
 }
 .description {
   position: absolute;

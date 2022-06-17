@@ -32,7 +32,6 @@ export default {
   },
   mounted() {
     this.id = this.uuidv4();
-    console.log(this);
   },
   methods: {
     textSearch() {
