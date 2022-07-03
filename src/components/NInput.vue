@@ -47,7 +47,7 @@ export default {
       }, 500);
     },
     search(pattern){
-      axios.get("http://192.168.1.14:8001/api/search/" + pattern)
+      axios.get(process.env.VUE_APP_BL_API+"/api/search/" + pattern)
         .then(response => {
           this.$emit('search-result', this.val == '' ? [] : response.data);
           // this.val = '';
