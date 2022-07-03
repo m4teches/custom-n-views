@@ -7,7 +7,7 @@
       v-bind="$attrs"
       v-model="val"
       :id="id"
-      @keyup="textSearch($event)"
+      @input="textSearch($event)"
       v-on:keyup.enter="onEnter"
       type="text"
       :placeholder="this.placeholder ? this.placeholder : 'Type here...'"
@@ -47,7 +47,7 @@ export default {
       }, 500);
     },
     search(pattern){
-      axios.get("http://127.0.0.1:8001/api/search/" + pattern)
+      axios.get("http://192.168.1.14:8001/api/search/" + pattern)
         .then(response => {
           this.$emit('search-result', this.val == '' ? [] : response.data);
           // this.val = '';
@@ -65,10 +65,8 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .ninput {
-  margin: 15px;
   display: inline-block;
   position: relative;
 }
@@ -86,6 +84,7 @@ input {
   width: 100% !important;
   font-weight:bold;
   box-sizing: border-box;
+  font-size: 1rem;
 }
 input::placeholder {
   color: #371B58;

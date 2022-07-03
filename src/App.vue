@@ -1,11 +1,11 @@
 <template>
   <NInput
-    style="width: 50%"
+    class="search-input"
     label="Kereső"
     placeholder="Bágyi könyvtári kereső..."
     v-on:search-result="displayResults"
   />
-  <SearchContainer :results="results" />
+  <SearchContainer class="main-search-container" :results="results" />
 </template>
 
 <script>
@@ -84,5 +84,16 @@ export default {
 }
 body {
   background: #6CC4A1;
+}
+.search-input{
+  width: 50%;
+}
+.main-search-container{
+  margin-top: 30px;
+}
+@media only screen and (max-width: 768px) {
+  .search-input{
+    width: 100%;
+  }
 }
 </style>

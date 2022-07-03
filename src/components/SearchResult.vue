@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import gsap from "gsap";
+// import gsap from "gsap";
 let uuid = 0;
 export default {
   name: "SearchResult",
@@ -35,14 +35,14 @@ export default {
   },
   methods: {
     hover() {
-        gsap.to('#img' + this.id,{
-            scale: 1.1
-        });
+        // gsap.to('#img' + this.id,{
+        //     scale: 1.1
+        // });
     },
     hoverend() {
-        gsap.to('#img' + this.id,{
-            scale: 1
-        });
+        // gsap.to('#img' + this.id,{
+        //     scale: 1
+        // });
     },
     uuidv4() {
       return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -58,8 +58,8 @@ export default {
 
 <style>
 img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  /*max-height: 100%;*/
 }
 .result {
   font-family: "Ubuntu", sans-serif;
@@ -69,6 +69,12 @@ img {
   color: #371B58;
   margin: 15px;
   overflow: hidden;
+  transition: box-shadow .2s,transform .2s;
+  border-radius: 0.375rem;
+}
+.result:hover{
+  box-shadow: 0 0.625rem 1.875rem -0.625rem black;
+  transform: scale(1.03);
 }
 .description {
   position: absolute;
@@ -113,6 +119,13 @@ img {
   color: white;
   right: 0;
   bottom: 0;
-  left: 66%;
+  padding: 0 30px;
+  /*left: 66%;*/
+}
+@media only screen and (max-width: 768px) {
+  .result{
+    /*width: 120px;*/
+    /*height: 200px;*/
+  }
 }
 </style>
