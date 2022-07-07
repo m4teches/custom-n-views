@@ -47,6 +47,7 @@ export default {
       }, 500);
     },
     search(pattern){
+      console.log(this.val);
       axios.get(process.env.VUE_APP_BL_API+"/api/search/" + pattern)
         .then(response => {
           this.$emit('search-result', this.val == '' ? [] : response.data);

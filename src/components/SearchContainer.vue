@@ -3,7 +3,8 @@
     <SearchResult
       v-for="result in featured"
       :result="result"
-      :key="result.name"
+      :key="result.title"
+      @click="selected(result)"
     />
   </div>
 </template>
@@ -28,6 +29,12 @@ export default {
   },
   props: {
     results: Array,
+  },
+  methods: {
+    selected(book){
+      console.log(book);
+      this.$emit('book-selected', book);
+    }
   },
 };
 </script>

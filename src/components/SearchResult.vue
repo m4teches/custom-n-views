@@ -71,6 +71,7 @@ img {
   overflow: hidden;
   transition: box-shadow .2s,transform .2s;
   border-radius: 0.375rem;
+  cursor: pointer;
 }
 .result:hover{
   box-shadow: 0 0.625rem 1.875rem -0.625rem black;

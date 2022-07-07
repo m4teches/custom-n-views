@@ -5,12 +5,17 @@
     placeholder="Bágyi könyvtári kereső..."
     v-on:search-result="displayResults"
   />
-  <SearchContainer class="main-search-container" :results="results" />
+  <SearchContainer 
+    class="main-search-container" 
+    v-on:book-selected="displaySelected"
+    :results="results" />
+  <DetailModal ref="detailmodal"/>
 </template>
 
 <script>
 import NInput from "./components/NInput.vue";
 import SearchContainer from "./components/SearchContainer.vue";
+import DetailModal from "./components/modal/DetailModal.vue";
 export default {
   name: "App",
   data: function () {
@@ -59,8 +64,12 @@ export default {
   components: {
     NInput: NInput,
     SearchContainer: SearchContainer,
+    DetailModal: DetailModal,
   },
   methods: {
+    displaySelected(book){
+      this.$refs.detailmodal.show(book);
+    },
     displayResults(results) {
       if(results.length){
         this.results = results;
