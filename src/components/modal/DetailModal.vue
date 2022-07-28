@@ -1,16 +1,17 @@
 <template>
   <div class="modal-overlay" v-if=display @click="display = false">
     <div class="modal" @click.stop>
-      <p>{{book.title}}</p>
+      <detail :book="book"/>
     </div>
   </div>
 </template>
 
 <script>
+import Detail from "../Detail.vue"
 export default {
   name: "DetailModal",
   components: {
-    // SearchResult: SearchResult,
+    Detail,
   },
   data: function () {
     return {
@@ -22,7 +23,7 @@ export default {
     show(book){
       this.display = true;
       this.book = book;
-      console.log(book.title);
+      console.log(book);
     },
   }
 };
