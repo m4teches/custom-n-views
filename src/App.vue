@@ -1,10 +1,12 @@
 <template>
-  <NInput
-    class="search-input"
-    label="Kereső"
-    placeholder="Bágyi könyvtári kereső..."
-    v-on:search-result="displayResults"
-  />
+  <WelcomePage>
+    <NInput
+      class="search-input"
+      label="Kereső"
+      placeholder="Bágyi könyvtári kereső..."
+      v-on:search-result="displayResults"
+    />
+  </WelcomePage>
   <SearchContainer 
     class="main-search-container" 
     v-on:book-selected="displaySelected"
@@ -13,6 +15,7 @@
 </template>
 
 <script>
+import WelcomePage from "./components/pages/WelcomePage.vue";
 import NInput from "./components/NInput.vue";
 import SearchContainer from "./components/SearchContainer.vue";
 import DetailModal from "./components/modal/DetailModal.vue";
@@ -62,6 +65,7 @@ export default {
     }
   },
   components: {
+    WelcomePage,
     NInput: NInput,
     SearchContainer: SearchContainer,
     DetailModal: DetailModal,
@@ -89,10 +93,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 body {
   background: #6CC4A1;
+  margin: 0;
 }
 .search-input{
   width: 50%;
