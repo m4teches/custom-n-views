@@ -5,13 +5,17 @@
             <h1 class="color-grd">Üdvözöljük a könyvtári adatbázisban!</h1>
             <slot></slot>
         </section>
+        <mytitle style="text-align:left;" legend="teszt legend">Teszt cím</mytitle>
     </div>
 </template>
 
 <script>
+import Title from '../Title.vue';
+
 export default {
     name: "WelcomePage",
     components: {
+        'mytitle': Title
     },
     data: function () {
         return {
@@ -37,7 +41,7 @@ section{
     bottom: 0;
     left: 0;
     right: 0;
-    clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0%, 100% 60%, 0% 100%);
     background: #323232;
 }
 h1{

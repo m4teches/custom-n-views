@@ -19,6 +19,11 @@ export default {
       book: {}
     };
   },
+  watch:{
+    display(newVal){
+      document.body.style.overflow = newVal ? 'hidden' : 'auto';
+    }
+  },
   methods: {
     show(book){
       this.display = true;
@@ -40,6 +45,7 @@ export default {
   justify-content: end;
   background-color: #00000070;
   flex-direction: column;
+  backdrop-filter: blur(2px);
 }
 
 .modal {
