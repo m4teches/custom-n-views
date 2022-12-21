@@ -17,7 +17,7 @@ export default {
 <style scoped>
     h3{
         color:#000;
-        font-size: clamp(0.8rem, 8vw, 3rem);
+        font-size: clamp(1rem, -1.5rem + 8vw, 2rem);
         font-family: 'Source Code Pro', monospace;
         margin: 30px 0;
         -webkit-background-clip: text;

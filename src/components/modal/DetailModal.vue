@@ -20,9 +20,9 @@ export default {
     };
   },
   watch:{
-    display(newVal){
-      document.body.style.overflow = newVal ? 'hidden' : 'auto';
-    }
+    // display(newVal){
+    //   document.body.style.overflow = newVal ? 'hidden' : 'auto';
+    // }
   },
   methods: {
     show(book){

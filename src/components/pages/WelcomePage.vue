@@ -1,12 +1,18 @@
 <template>
-    <div>
-        <section>
-            <div class="bg"></div>
+    <main>
+        <section class="container">
             <h1 class="color-grd">Üdvözöljük a könyvtári adatbázisban!</h1>
             <slot></slot>
+            <mytitle style="text-align:start;">Legújabb könyveink:</mytitle>
+            <Splide :options="sliderOptions" aria-label="My Favorite Images">
+                <SplideSlide v-for="slide in slides" :key="slide">
+                    <div class="slide">
+                        <img  :src="slide.src" alt="Sample 1">
+                    </div>
+                </SplideSlide>
+            </Splide>
         </section>
-        <mytitle style="text-align:left;" legend="teszt legend">Teszt cím</mytitle>
-    </div>
+    </main>
 </template>
 
 <script>
@@ -19,8 +25,32 @@ export default {
     },
     data: function () {
         return {
+            sliderOptions:{
+                rewind : true,
+                perPage : 4,
+                gap : '1rem',
+                autoplay : true,
+                breakpoints: {
+                    768: {
+                        perPage: 2,
+                    },
+                }
+            },
             display: false,
-            book: {}
+            slides: [
+                {
+                    src : './assets/img/slide1.jpg'
+                },
+                {
+                    src : './assets/img/slide2.jpg'
+                },
+                {
+                    src : './assets/img/slide3.jpg'
+                },
+                {
+                    src : './assets/img/slide4.jpg'
+                },
+            ]
         };
     },
     methods: {
@@ -29,10 +59,12 @@ export default {
 </script>
 
 <style scoped>
-section{
+main{
     padding: 60px 120px;
     position: relative;
     isolation: isolate;
+    background: #323232;
+    text-align: start;
 }
 .bg{
     z-index: -1;
@@ -46,8 +78,7 @@ section{
 }
 h1{
     color:#000;
-    font-size: clamp(1rem, 8vw, 5rem); 
-    /* text-align: start; */
+    font-size: clamp(1rem, 8vw, 3rem); 
     font-family: 'Source Code Pro', monospace;
     margin: 30px 0;
 }
@@ -59,9 +90,20 @@ h1{
     background-image: -o-linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
     background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
 }
+.slide{
+    text-align: center;
+}
+.slide img{
+    max-width: 100%;
+    max-height: 300px;
+    width: auto;
+}
 @media (max-width: 768px) {
-    section{
-        padding: 30px;
+    main{
+        padding: 1rem;
+    }
+    .slide img{
+        max-height: 200px;
     }
 }
 </style>
