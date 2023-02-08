@@ -63,7 +63,7 @@ export default {
   mounted() {
     console.log(this.$route.query.s)
     this.pattern = this.$route.query.s;
-    this.results = this.featured.sort(() => Math.random() - 0.5).slice(0, 3);
+    // this.results = this.featured.sort(() => Math.random() - 0.5).slice(0, 3);
   },
   watch: {
     results: function (val, oldVal) {
@@ -78,7 +78,8 @@ export default {
       if(results.length){
         this.results = results;
       }else{
-        this.results = this.featured.sort(() => Math.random() - 0.5).slice(0, 3);
+        // this.results = this.featured.sort(() => Math.random() - 0.5).slice(0, 3);
+        this.results = []
       }
     }
   }

@@ -1,4 +1,13 @@
 <template>
+  <header class="polc-header">
+    <div class="polc-logo">
+      <router-link to="/"><img src="./assets/polc-logo.svg" alt="polc Logo"></router-link>
+    </div>
+    <div class="links">
+      <router-link class="polc-link" to="/search">Keresés</router-link>
+      <!-- <router-link class="polc-link" to="/help">?</router-link> -->
+    </div>
+  </header>
   <router-view>
   </router-view>
 </template>
@@ -20,7 +29,33 @@ export default {
   color: #2c3e50;
 }
 body {
-  background: #6CC4A1;
+  background: #323232;
   margin: 0;
+}
+.polc-header{
+  background: #fff;
+  padding-block: 5px;
+  padding-inline: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 150px auto;
+}
+.polc-logo{
+  display: flex;
+}
+.links{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.links .polc-link{
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #323232;
+  font-weight: bold;
+  padding-inline: 15px;
+  font-family: 'Source Code Pro', monospace;
 }
 </style>

@@ -5,7 +5,7 @@
     <p>{{book.release_year}}</p>
     <badges :list="book.category" />
     <p>{{book.shelf}}</p>
-    <button v-on:click="openBook">Kölcsönzés</button>
+    <!-- <button v-on:click="openBook">Kölcsönzés</button> -->
   </span>
 </template>
 

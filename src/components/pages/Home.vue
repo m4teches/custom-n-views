@@ -1,22 +1,21 @@
 <template>
     <WelcomePage>
-        <NInput class="search-input" label="Kereső" placeholder="Bágyi könyvtári kereső..."
-            v-on:search="opneSearch" />
+        <Search />
     </WelcomePage>
 </template>
 
 <script>
 import WelcomePage from './WelcomePage.vue';
-import NInput from '../NInput.vue';
+import Search from './Search.vue';
 
 export default {
     name: "Home",
     components: {
         WelcomePage,
-        NInput,
+        Search,
     },
     methods: {
-        opneSearch(pattern) {
+        openSearch(pattern) {
             // console.log(pattern)
             this.$router.push({ path: 'search', query: { s: pattern } })
         }

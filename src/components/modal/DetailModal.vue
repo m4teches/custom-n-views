@@ -46,6 +46,7 @@ export default {
   background-color: #00000070;
   flex-direction: column;
   backdrop-filter: blur(2px);
+  z-index: 2;
 }
 
 .modal {

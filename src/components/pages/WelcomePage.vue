@@ -12,6 +12,7 @@
                 </SplideSlide>
             </Splide>
         </section>
+        <div class="divider"></div>
     </main>
 </template>
 
@@ -60,10 +61,11 @@ export default {
 
 <style scoped>
 main{
-    padding: 60px 120px;
     position: relative;
     isolation: isolate;
     background: #323232;
+}
+.container{
     text-align: start;
 }
 .bg{
@@ -90,6 +92,7 @@ h1{
     background-image: -o-linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
     background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
 }
+
 .slide{
     text-align: center;
 }
@@ -97,6 +100,11 @@ h1{
     max-width: 100%;
     max-height: 300px;
     width: auto;
+}
+.divider{
+    margin-block: 30px 10px;
+    height: 80px;
+    background: url('../../assets/books-green.svg');
 }
 @media (max-width: 768px) {
     main{
