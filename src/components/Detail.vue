@@ -5,6 +5,7 @@
     <p>{{book.release_year}}</p>
     <badges :list="book.category" />
     <p>{{book.shelf}}</p>
+    <button v-on:click="openBook">Kölcsönzés</button>
   </span>
 </template>
 
@@ -18,6 +19,11 @@ export default {
   props: {
     book: Object,
   },
+  methods: {
+    openBook(){
+      this.$router.push({ path: `book/${this.book.id}` })
+    }
+  }
 };
 </script>
 

@@ -47,6 +47,7 @@ export default {
       }, 500);
     },
     search(pattern){
+      this.$emit('search', pattern);
       console.log(this.val);
       axios.get(process.env.VUE_APP_BL_API+"/api/search/" + pattern)
         .then(response => {
@@ -70,6 +71,7 @@ export default {
 .ninput {
   display: inline-block;
   position: relative;
+  margin-top: 30px;
 }
 input {
   display: block;

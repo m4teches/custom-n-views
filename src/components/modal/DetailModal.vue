@@ -42,7 +42,7 @@ export default {
   left: 0;
   right: 0;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   background-color: #00000070;
   flex-direction: column;
   backdrop-filter: blur(2px);
