@@ -11,6 +11,8 @@
 
 <script>
 import Badges from "./Badges.vue"
+import axios from "axios";
+
 export default {
   name: "Detail",
   components: {
@@ -22,6 +24,19 @@ export default {
   methods: {
     openBook(){
       this.$router.push({ path: `book/${this.book.id}` })
+    },
+    async createLoan() {
+      console.log(this.book);
+      try {
+        const response = await axios.post(process.env.VUE_APP_BL_API+'/api/loans/'+this.book.id, {
+          book_id: this.book.id,
+          member_id: 1,
+          return_by: '2023-12-12',
+        });
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     }
   }
 };
