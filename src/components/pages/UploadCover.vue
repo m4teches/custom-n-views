@@ -35,7 +35,7 @@ export default {
                 console.log(response.data);
                 this.message = response.data
             } catch (error) {
-                this.message = error.message
+                this.message = error.request.response
                 console.error(error);
             }
         },
