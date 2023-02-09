@@ -3,7 +3,7 @@
     @mouseenter="hover"
     @mouseleave="hoverend"
     class="result">
-    <img :id="'img' + id" :src="result.img" :alt="result.title" />
+    <img :id="'img' + id" :src="imgLink" :alt="result.title" />
     <div class="description">
       <h2>{{ result.title }}</h2>
       <p>{{ result.author }}</p>
@@ -29,6 +29,11 @@ export default {
   mounted() {
     this.id = uuid.toString();
     uuid += 1;
+    if(this.result.cover == null){
+      this.imgLink = this.result.img;
+    }else{
+      this.imgLink = process.env.VUE_APP_BL_API+'/api/book/'+this.result.id+'/cover';
+    }
   },
   props: {
     result: Object,
@@ -58,8 +63,9 @@ export default {
 
 <style>
 img {
-  width: 100%;
-  /*max-height: 100%;*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .result {
   font-family: "Ubuntu", sans-serif;

@@ -6,6 +6,7 @@
     <badges :list="book.category" />
     <p>{{book.shelf}}</p>
     <!-- <button v-on:click="openBook">Kölcsönzés</button> -->
+    <button v-on:click="openEditor">Borító feltöltése</button>
   </span>
 </template>
 
@@ -24,6 +25,9 @@ export default {
   methods: {
     openBook(){
       this.$router.push({ path: `book/${this.book.id}` })
+    },
+    openEditor(){
+      this.$router.push({ path: `cover/${this.book.id}` })
     },
     async createLoan() {
       console.log(this.book);

@@ -64,6 +64,7 @@ main{
     position: relative;
     isolation: isolate;
     background: #323232;
+    padding: 1rem;
 }
 .container{
     text-align: start;

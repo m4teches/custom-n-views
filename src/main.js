@@ -12,10 +12,12 @@ import Home from "./components/pages/Home.vue";
 import Search from "./components/pages/Search.vue";
 import Loan from "./components/pages/Loan.vue";
 import Book from "./components/pages/Book.vue";
+import UploadCover from "./components/pages/UploadCover.vue";
 
 const routes = [
   { path: '/', component: Home },
   { path: '/search', component: Search },
+  { path: '/cover/:id?', component: UploadCover },
   { path: '/loan/:id?', component: Loan },
   { path: '/book/:id?', component: Book },
 ]
