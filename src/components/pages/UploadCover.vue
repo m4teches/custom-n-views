@@ -1,7 +1,8 @@
 <template>
-    <form @submit.prevent="uploadCoverImage">
+    <form class="upload-cover-form" @submit.prevent="uploadCoverImage">
         <input type="file" ref="coverInput" @change="onFileChange"/>
         <button type="submit">Upload Cover Image</button>
+        <p>{{message}}</p>
     </form>
   </template>
   
@@ -17,6 +18,7 @@ export default {
         return {
             cover: null,
             bookId: null,
+            message:''
         };
     },
     created(){
@@ -31,7 +33,9 @@ export default {
             try {
                 const response = await axios.post(process.env.VUE_APP_BL_API+`/api/book/${this.bookId}/cover`, formData);
                 console.log(response.data);
+                this.message = response.data
             } catch (error) {
+                this.message = error.message
                 console.error(error);
             }
         },
@@ -42,3 +46,12 @@ export default {
     }
 };
 </script>
+<style>
+.upload-cover-form{
+    margin: 30px;
+    margin-inline: auto;
+    max-width: 500px;
+    padding: 60px 30px;
+    background: #fff;
+}
+</style>
