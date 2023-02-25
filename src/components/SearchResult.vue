@@ -30,8 +30,8 @@ export default {
     if(this.result.cover_link == false){
       this.imgLink = this.result.img;
     }else{
-      // this.imgLink = process.env.VUE_APP_BL_API+'/api/book/'+this.result.id+'/cover';
-      this.imgLink = this.result.cover_link;
+      this.imgLink = process.env.VUE_APP_BL_API+'/api/book/'+this.result.id+'/cover/'+this.result.cover;
+      // this.imgLink = this.result.cover_link;
     }
   },
   props: {
