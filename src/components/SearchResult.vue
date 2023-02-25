@@ -29,10 +29,11 @@ export default {
   mounted() {
     this.id = uuid.toString();
     uuid += 1;
-    if(this.result.cover == null){
+    if(this.result.cover_link == false){
       this.imgLink = this.result.img;
     }else{
-      this.imgLink = process.env.VUE_APP_BL_API+'/api/book/'+this.result.id+'/cover';
+      // this.imgLink = process.env.VUE_APP_BL_API+'/api/book/'+this.result.id+'/cover';
+      this.imgLink = this.result.cover_link;
     }
   },
   props: {
