@@ -1,12 +1,10 @@
 <template>
-  <div 
-    @mouseenter="hover"
-    @mouseleave="hoverend"
-    class="result">
+  <div class="result">
     <img :id="'img' + id" :src="imgLink" :alt="result.title" />
     <div class="description">
       <h2>{{ result.title }}</h2>
       <p>{{ result.author }}</p>
+      <button class="underline-btn" @click="this.$emit('book-open', result);">Megnézem</button>
     </div>
     <div v-if="result.badge == 1" class="badge new">Új</div>
     <div v-if="result.badge == 2" class="badge featured">Ajánlott</div>
@@ -40,16 +38,6 @@ export default {
     result: Object,
   },
   methods: {
-    hover() {
-        // gsap.to('#img' + this.id,{
-        //     scale: 1.1
-        // });
-    },
-    hoverend() {
-        // gsap.to('#img' + this.id,{
-        //     scale: 1
-        // });
-    },
     uuidv4() {
       return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
         (
@@ -78,7 +66,6 @@ img {
   overflow: hidden;
   transition: box-shadow .2s,transform .2s;
   border-radius: 0.375rem;
-  cursor: pointer;
 }
 .result:hover{
   box-shadow: 0 0.625rem 1.875rem -0.625rem black;
@@ -95,6 +82,18 @@ img {
 .description h2{
   font-size: 18px;
   padding: 0 15px;
+}
+.description .underline-btn{
+  color: #371b58;
+  background: none;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  text-decoration: underline;
+  font-family: inherit;
+  cursor: pointer;
+  margin-bottom: 5px;
+  font-size: 1rem;
 }
 .badge {
   position: absolute;
@@ -120,20 +119,26 @@ img {
 }
 .shelf{
   position: absolute;
-  background: #371B58;
-  color:white;
+  background: #6cc4a1;
+  color: #371B58;
   font-size: 18px;
   font-weight: bold;
-  color: white;
+  left: 0;
   right: 0;
-  bottom: 0;
+  top: 0;
   padding: 0 30px;
-  /*left: 66%;*/
 }
 @media only screen and (max-width: 768px) {
   .result{
-    /*width: 120px;*/
-    /*height: 200px;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    width: auto;
+  }
+  .description {
+    padding-block: 15px;
+    position: relative;
+    min-height: unset;
   }
 }
 </style>

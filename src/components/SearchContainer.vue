@@ -4,7 +4,7 @@
       v-for="result in featured"
       :result="result"
       :key="result.title"
-      @click="selected(result)"
+      v-on:book-open="selected(result)"
     />
   </div>
 </template>

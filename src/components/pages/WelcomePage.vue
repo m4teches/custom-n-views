@@ -11,8 +11,8 @@
                     </div>
                 </SplideSlide>
             </Splide>
-            <mytitle style="text-align:start;">Böngésszen:</mytitle>
-            <categories></categories>
+            <!-- <mytitle style="text-align:start;">Böngésszen:</mytitle> -->
+            <!-- <categories></categories> -->
         </section>
         <!-- <div class="divider"></div> -->
     </main>
@@ -20,13 +20,13 @@
 
 <script>
 import Title from '../Title.vue';
-import Categories from '../elements/Categories.vue';
+// import Categories from '../elements/Categories.vue';
 
 export default {
     name: "WelcomePage",
     components: {
         'mytitle': Title,
-        Categories
+        // Categories
     },
     data: function () {
         return {
