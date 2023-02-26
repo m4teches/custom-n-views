@@ -17,6 +17,7 @@ export default {
             sliderOptions:{
                 rewind : true,
                 perPage : 4,
+                perMove : 1,
                 gap : '1rem',
                 autoplay : true,
                 breakpoints: {
@@ -53,6 +54,10 @@ export default {
 .slide img{
     max-width: 100%;
     max-height: 300px;
-    width: auto;
+    object-fit: contain;
+
+}
+.splide__slide{
+    display: flex;
 }
 </style>
