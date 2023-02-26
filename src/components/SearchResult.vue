@@ -30,7 +30,7 @@ export default {
     if(this.result.cover_link == false){
       this.imgLink = this.result.img;
     }else{
-      this.imgLink = process.env.VUE_APP_BL_API+'/api/book/'+this.result.id+'/'+this.result.cover_path;
+      this.imgLink = process.env.VUE_APP_BL_API+'/api/book/'+this.result.id+'/cover/'+(Math.random() + 1).toString(36).substring(2);
       // this.imgLink = this.result.cover_link;
     }
   },
