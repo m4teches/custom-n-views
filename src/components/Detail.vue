@@ -3,9 +3,6 @@
     <h1>{{book.title}}</h1>
     <p>({{book.author}})</p>
     <p>{{book.release_year}}</p>
-    <p>
-      {{ book.description }}
-    </p>
     <badges :list="book.category" />
     <p>{{book.shelf}}</p>
     <!-- <button v-on:click="openBook">Kölcsönzés</button> -->
