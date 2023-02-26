@@ -4,16 +4,11 @@
             <h1 class="color-grd">Üdvözöljük a könyvtári adatbázisban!</h1>
             <slot></slot>
             <mytitle style="text-align:start;">Legújabb könyveink:</mytitle>
-            <Splide :options="sliderOptions" aria-label="My Favorite Images">
-                <SplideSlide v-for="slide in slides" :key="slide">
-                    <div class="slide">
-                        <img  :src="slide.src" alt="Sample 1">
-                    </div>
-                </SplideSlide>
-            </Splide>
+            <book-slider v-on:book-open="displaySelected"></book-slider>
             <!-- <mytitle style="text-align:start;">Böngésszen:</mytitle> -->
             <!-- <categories></categories> -->
         </section>
+        <DetailModal ref="detailmodal"/>
         <!-- <div class="divider"></div> -->
     </main>
 </template>
@@ -21,44 +16,24 @@
 <script>
 import Title from '../Title.vue';
 // import Categories from '../elements/Categories.vue';
+import BookSlider from '../elements/BookSlider.vue';
+import DetailModal from '../modal/DetailModal.vue';
 
 export default {
     name: "WelcomePage",
     components: {
-        'mytitle': Title,
-        // Categories
-    },
+    "mytitle": Title,
+    BookSlider,
+    DetailModal
+},
     data: function () {
         return {
-            sliderOptions:{
-                rewind : true,
-                perPage : 4,
-                gap : '1rem',
-                autoplay : true,
-                breakpoints: {
-                    768: {
-                        perPage: 2,
-                    },
-                }
-            },
-            display: false,
-            slides: [
-                {
-                    src : './assets/img/slide1.jpg'
-                },
-                {
-                    src : './assets/img/slide2.jpg'
-                },
-                {
-                    src : './assets/img/slide3.jpg'
-                },
-                {
-                    src : './assets/img/slide4.jpg'
-                },
-            ]
         };
     },
     methods: {
+        displaySelected(book){
+            this.$refs.detailmodal.show(book);
+        },
     }
 };
 </script>
@@ -96,15 +71,6 @@ h1{
     background-image: -webkit-linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
     background-image: -o-linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
     background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
-}
-
-.slide{
-    text-align: center;
-}
-.slide img{
-    max-width: 100%;
-    max-height: 300px;
-    width: auto;
 }
 .divider{
     margin-block: 30px 10px;
